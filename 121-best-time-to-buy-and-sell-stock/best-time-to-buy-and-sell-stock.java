@@ -5,17 +5,18 @@ class Solution {
         int maxProfit=0;
         while(right<prices.length)
         {
-            if(prices[left]<prices[right])
-            {
+            if(prices[right]>prices[left]){
                 int profit=prices[right]-prices[left];
-            maxProfit=Math.max(maxProfit,profit);
+                maxProfit=Math.max(maxProfit,profit);
+            }
+            else
+            {
+                left=right;
+            }
+            right++;
         }
-        else{
-            left=right;
-        }
-        right++;
+        return maxProfit;
     }
-    return maxProfit;
 }
-}
+
         
