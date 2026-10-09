@@ -1,13 +1,18 @@
 
 class Solution {
     public int maxJump(int[] stones) {
-        int ans = stones[1] - stones[0];
+        int n = stones.length;
 
-        for (int i = 2; i < stones.length; i++) {
-            ans = Math.max(ans, stones[i] - stones[i - 2]);
+        int[] dp = new int[n];
+        dp[0] = 0;
+        dp[1] = stones[1] - stones[0];
+
+        for (int i = 2; i < n; i++) {
+            dp[i] = Math.max(dp[i - 1], stones[i] - stones[i - 2]);
         }
 
-        return ans;
+        return dp[n - 1];
     }
 }
+
 
