@@ -1,4 +1,5 @@
 
+
 class Solution {
     public int maxJump(int[] stones) {
         int n = stones.length;
